@@ -1,0 +1,254 @@
+/*!
+Theme Name: LeadRocket
+Author: Wyatt Kirby & Brett McBee-Wise
+Author URI: http://leadrocket.org/
+Description: Custom theme for LeadRocket Corporate Website
+Version: 2.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+// Imports
+// --------------------------------------------------------
+
+@import "bootstrap.less";
+@import "lesshat-prefixed.less";
+
+// Variables
+// --------------------------------------------------------
+
+@lr-pink: #f56b6e;
+@lr-orange: #feae6e;
+
+@border-color: @gray-lighter;
+@content-bg: #bec8d5;
+@footer-bg: @gray-darker;
+@pagination-bg: @content-bg;
+@body-bg: @footer-bg;
+
+@font-family-base: @font-family-sans-serif;
+@headings-font-family: "Myriad Pro", "Verdana", @font-family-sans-serif;
+
+@border-radius-base: 3px;
+@border-radius-small: 2px;
+@grid-gutter-width: 40px;
+
+
+// Mixins
+// --------------------------------------------------------
+
+.shine(@opacity: inherit) {
+	&::before {
+		content: "";
+		position: absolute;
+		display: block;
+		opacity: @opacity !important;
+		top: 0; right: 0; bottom: 0; left: 0;
+		.lh-background-image(linear-gradient(to bottom,  rgba(255,255,255,0.1) 0%,rgba(255,255,255,0.2) 50%,rgba(255,255,255,0) 51%));
+	}
+}
+
+// Layout
+// --------------------------------------------------------
+
+body {
+
+	padding-top: @navbar-height;
+	* { word-wrap:break-word; }
+
+	&.admin-bar {
+		.navbar-fixed-top {
+			top: 28px;
+		}
+	}
+}
+
+// Universal
+// --------------------------------------------------------
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+// Header
+// --------------------------------------------------------
+
+// Nav
+
+nav#nav {
+	.shine(0.35);
+}
+
+// Content
+// --------------------------------------------------------
+
+#content {
+	padding: 2em 0;
+	background-color: @content-bg;
+}
+
+// Posts
+// --------------------------------------------------------
+
+.hentry {
+
+	header {
+		h2 {
+			margin-top: 0;
+			.h3();
+		}
+	}
+
+	&.post {
+
+	}
+
+	&.post-list {
+		margin-bottom: 2em;
+		padding-bottom: 2em;
+		border-bottom: 1px solid @border-color;
+
+		.thumbnail {
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+	}
+}
+
+// Pages
+// --------------------------------------------------------
+
+#page-header {
+	background-color: @gray-darker;
+	color: white;
+	padding: 2em 0 1em;
+
+	h1 {
+		font-weight: normal;
+	}
+}
+
+// Hero Section & Slideshow
+
+#hero {
+	background-color: @gray-light;
+}
+
+// Features & Benefits Sections
+
+.marketing-row {
+	padding: 2em 0;
+
+	h2.marketing-title {
+		.text-center();
+		margin-top: 0;
+		text-transform: uppercase;
+		padding-bottom: .75em;
+		border-bottom: 1px dashed @border-color;
+	}
+
+	&#features {
+		background-color: white;
+	}
+
+	&#benefits {
+		background-color: @gray-light;
+	}
+
+	.widget {
+		text-align: center;
+
+		.features-thumbnail {
+			.img-circle();
+		}
+
+		.benefits-thumbnail {
+			.img-rounded();
+		}
+	}
+}
+
+// Sidebars
+// --------------------------------------------------------
+
+#sidebar {
+
+	h3.widget-title {
+		margin-top: 0;
+		.h4();
+	}
+
+	.widget {
+		margin-bottom: 1.5em;
+	}
+
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+}
+
+// Footer
+// --------------------------------------------------------
+
+#footer {
+	font-size: .85em;
+	text-align: center;
+
+	padding: @navbar-height 0;
+
+	.footer-nav, .footer-nav ul {
+		.list-inline();
+
+		a {
+			color: @lr-orange;
+		}
+	}
+}
+
+// Buttons
+// --------------------------------------------------------
+
+.btn {
+	.lh-transition(all 0.1s ease-in-out);
+}
+
+.btn-nice {
+	position: relative;
+	.button-variant(@btn-primary-color; @lr-pink; darken(@lr-pink, 5%););
+	.shine();
+}
+
+// Comments
+// --------------------------------------------------------
+
+ol.comment-list {
+	.list-unstyled();
+
+	li {
+		margin-bottom: 1.5em;
+	}
+}
+
+#respond #submit {
+	.btn();
+	.btn-default();
+}
+
+// Slideshow
+// --------------------------------------------------------
+
+.bx-wrapper {
+	position: relative;
+	margin: 0 auto 60px;
+	padding: 0;
+	*zoom: 1;
+}
+
+.bx-wrapper img {
+	max-width: 100%;
+	display: block;
+}
